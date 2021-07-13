@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module context_sensitive_spell_chk.preprocessing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="context_sensitive_spell_chk.html"><font color="#ffffff">context_sensitive_spell_chk</font></a>.preprocessing</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/walsanie/my_projs/python/context_sensitive_spell_chk/context_sensitive_spell_chk/preprocessing.py">/home/walsanie/my_projs/python/context_sensitive_spell_chk/context_sensitive_spell_chk/preprocessing.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;in&nbsp;2016<br>
+&nbsp;<br>
+@authors:&nbsp;Atheer&nbsp;Alkhalifa,&nbsp;Lamia&nbsp;Alkwai,&nbsp;Waleed&nbsp;Alsanie&nbsp;and&nbsp;Mohamed&nbsp;Alkanhal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;National&nbsp;Center&nbsp;for&nbsp;Computation&nbsp;Technology&nbsp;&amp;&nbsp;Applied&nbsp;Mathematics<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{aalkhalifa,lalkwai,walsanie,&nbsp;alkanhal}&nbsp;[at]&nbsp;kacst&nbsp;[dot]&nbsp;edu&nbsp;[dot]&nbsp;sa<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;is&nbsp;part&nbsp;of&nbsp;a&nbsp;context&nbsp;sensitive&nbsp;spell&nbsp;checking&nbsp;module.&nbsp;It&nbsp;is&nbsp;aimed&nbsp;to&nbsp;provide&nbsp;methods&nbsp;necessary<br>
+to&nbsp;preprocess&nbsp;the&nbsp;corpus&nbsp;and&nbsp;make&nbsp;it&nbsp;ready&nbsp;for&nbsp;learning.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xml.etree.ElementTree.html">xml.etree.ElementTree</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="context_sensitive_spell_chk.preprocessing.html#Preprocessor">Preprocessor</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Preprocessor">class <strong>Preprocessor</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Preprocessor-__init__"><strong>__init__</strong></a>(self, sentences=None)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;constructor&nbsp;of&nbsp;any&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;this&nbsp;class.&nbsp;Object&nbsp;will&nbsp;be&nbsp;constructed&nbsp;with&nbsp;the&nbsp;list&nbsp;of&nbsp;sentences&nbsp;given<br>
+in&nbsp;the&nbsp;parameter&nbsp;'sentences'.&nbsp;This&nbsp;list&nbsp;consists&nbsp;of&nbsp;2-tuple&nbsp;where&nbsp;each&nbsp;tuple&nbsp;represents&nbsp;a&nbsp;corpus&nbsp;sentence<br>
+and&nbsp;its&nbsp;terminator&nbsp;as&nbsp;follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(sent1,&nbsp;terminator1),&nbsp;....&nbsp;]<br>
+If&nbsp;the&nbsp;parameter&nbsp;'sentences'&nbsp;is&nbsp;not&nbsp;given,&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;will&nbsp;be&nbsp;constructed&nbsp;with&nbsp;an&nbsp;empty&nbsp;list.<br>
+:param&nbsp;sentences:<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-add_word_to_corpus"><strong>add_word_to_corpus</strong></a>(self, word, sent_num, position)</dt><dd><tt>This&nbsp;method&nbsp;adds&nbsp;word&nbsp;'word'&nbsp;to&nbsp;the&nbsp;corpus&nbsp;in&nbsp;the&nbsp;sentence&nbsp;number&nbsp;'sent_num'&nbsp;at&nbsp;position&nbsp;'position'.<br>
+:param&nbsp;word:&nbsp;word&nbsp;to&nbsp;be&nbsp;added.<br>
+:param&nbsp;sent_num:&nbsp;the&nbsp;sentence&nbsp;number&nbsp;where&nbsp;the&nbsp;word&nbsp;will&nbsp;be&nbsp;added.<br>
+:param&nbsp;position:&nbsp;the&nbsp;position&nbsp;in&nbsp;the&nbsp;sentence&nbsp;where&nbsp;the&nbsp;word&nbsp;will&nbsp;be&nbsp;added.<br>
+:return:&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-build_vocabulary"><strong>build_vocabulary</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;builds&nbsp;a&nbsp;python&nbsp;dictionary&nbsp;of&nbsp;vocabulary&nbsp;list,&nbsp;keeping&nbsp;track&nbsp;of&nbsp;each&nbsp;word&nbsp;regarding&nbsp;the&nbsp;sentences&nbsp;at<br>
+which&nbsp;it&nbsp;appears&nbsp;and&nbsp;its&nbsp;positions&nbsp;each&nbsp;sentence.The&nbsp;vocabulary&nbsp;will&nbsp;include&nbsp;special&nbsp;words&nbsp;(characters)<br>
+as&nbsp;well&nbsp;(e.g.&nbsp;'{',&nbsp;'[',&nbsp;'[',&nbsp;...&nbsp;etc),&nbsp;but&nbsp;not&nbsp;the&nbsp;sentence&nbsp;terminators.&nbsp;Calling&nbsp;this&nbsp;method&nbsp;will&nbsp;wipe&nbsp;off<br>
+any&nbsp;previous&nbsp;vocabulary&nbsp;that&nbsp;has&nbsp;been&nbsp;built.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-chop_off_text_into_sentences"><strong>chop_off_text_into_sentences</strong></a>(self, text)</dt><dd><tt>This&nbsp;method&nbsp;takes&nbsp;a&nbsp;text&nbsp;and&nbsp;divides&nbsp;it&nbsp;into&nbsp;sentences&nbsp;with&nbsp;respect&nbsp;to&nbsp;the&nbsp;separators&nbsp;set&nbsp;in<br>
+'<a href="#Preprocessor">Preprocessor</a>.<a href="#Preprocessor-set_ar_sent_terminator_regex">set_ar_sent_terminator_regex</a>(self,&nbsp;regex)'.&nbsp;The&nbsp;sentences&nbsp;will&nbsp;be&nbsp;returned&nbsp;as&nbsp;a&nbsp;list<br>
+of&nbsp;2-tuple&nbsp;elements&nbsp;where&nbsp;each&nbsp;tuple&nbsp;represents&nbsp;a&nbsp;sentence&nbsp;and&nbsp;its&nbsp;terminator&nbsp;as&nbsp;follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(sent1,&nbsp;terminator1),&nbsp;....]<br>
+:param&nbsp;text:&nbsp;A&nbsp;text&nbsp;to&nbsp;split.<br>
+:return:&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;of&nbsp;sentences&nbsp;and&nbsp;their&nbsp;respected&nbsp;terminators.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-clear_errors"><strong>clear_errors</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;clears&nbsp;all&nbsp;the&nbsp;errors&nbsp;that&nbsp;have&nbsp;made&nbsp;in&nbsp;the&nbsp;corpus.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-clear_sentences"><strong>clear_sentences</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;clears&nbsp;all&nbsp;sentences.&nbsp;After&nbsp;this&nbsp;method&nbsp;is&nbsp;called,&nbsp;'get_sentences'&nbsp;will&nbsp;return&nbsp;empty&nbsp;list<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-clear_vocabulary"><strong>clear_vocabulary</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;clears&nbsp;the&nbsp;vocabulary&nbsp;list.&nbsp;After&nbsp;this&nbsp;method&nbsp;is&nbsp;called,&nbsp;'get_vocabulary'&nbsp;will&nbsp;return<br>
+empty&nbsp;dictionary.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-corpus_path_is_set"><strong>corpus_path_is_set</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;checks&nbsp;if&nbsp;corpus&nbsp;path&nbsp;is&nbsp;set&nbsp;(not&nbsp;None).<br>
+:return:&nbsp;True:&nbsp;if&nbsp;corpus&nbsp;path&nbsp;is&nbsp;set,&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-delete_word_from_corpus"><strong>delete_word_from_corpus</strong></a>(self, word, sent_num, position)</dt><dd><tt>This&nbsp;method&nbsp;deletes&nbsp;word&nbsp;'word'&nbsp;in&nbsp;sentence&nbsp;number&nbsp;'sent_num'&nbsp;at&nbsp;position&nbsp;'position'&nbsp;from&nbsp;the&nbsp;corpus.<br>
+:param&nbsp;word:&nbsp;word&nbsp;to&nbsp;be&nbsp;deleted.<br>
+:param&nbsp;sent_num:&nbsp;the&nbsp;sentence&nbsp;number&nbsp;where&nbsp;the&nbsp;word&nbsp;exists.<br>
+:param&nbsp;position:&nbsp;the&nbsp;position&nbsp;in&nbsp;the&nbsp;sentence&nbsp;where&nbsp;the&nbsp;word&nbsp;exists.<br>
+:return:&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-divide_sentence_into_words"><strong>divide_sentence_into_words</strong></a>(self, text)</dt><dd><tt>This&nbsp;method&nbsp;divides&nbsp;a&nbsp;sentences&nbsp;into&nbsp;a&nbsp;list&nbsp;of&nbsp;its&nbsp;constituting&nbsp;words.&nbsp;Special&nbsp;words&nbsp;set&nbsp;by<br>
+'<a href="#Preprocessor">Preprocessor</a>.<a href="#Preprocessor-set_special_words_regex">set_special_words_regex</a>(regex)'&nbsp;will&nbsp;be&nbsp;considered&nbsp;words&nbsp;by&nbsp;themselves.<br>
+:param&nbsp;text:&nbsp;The&nbsp;sentence&nbsp;to&nbsp;be&nbsp;divided<br>
+:return:&nbsp;A&nbsp;list&nbsp;of&nbsp;words&nbsp;constituting&nbsp;the&nbsp;sentence.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_ar_sent_terminator_regex"><strong>get_ar_sent_terminator_regex</strong></a>(self)</dt><dd><tt>:return:&nbsp;The&nbsp;current&nbsp;regular&nbsp;expression&nbsp;of&nbsp;Arabic&nbsp;sentence&nbsp;terminators.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_current_set_corpus_path"><strong>get_current_set_corpus_path</strong></a>(self)</dt><dd><tt>This&nbsp;returns&nbsp;the&nbsp;currently&nbsp;set&nbsp;path&nbsp;for&nbsp;corpus&nbsp;file(s).<br>
+:return:&nbsp;The&nbsp;setting&nbsp;of&nbsp;the&nbsp;corpus&nbsp;path</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_current_set_xml_path"><strong>get_current_set_xml_path</strong></a>(self)</dt><dd><tt>This&nbsp;returns&nbsp;the&nbsp;currently&nbsp;set&nbsp;path&nbsp;for&nbsp;the&nbsp;xml&nbsp;file(s).<br>
+:return:&nbsp;The&nbsp;setting&nbsp;of&nbsp;the&nbsp;xml&nbsp;path</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_errors"><strong>get_errors</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;errors&nbsp;added&nbsp;in&nbsp;the&nbsp;corpus.<br>
+:return:&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;errors&nbsp;as&nbsp;follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{(sentence_num,&nbsp;position):&nbsp;(correct,&nbsp;incorrect),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_number_of_words"><strong>get_number_of_words</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;number&nbsp;of&nbsp;words&nbsp;in&nbsp;the&nbsp;corpus.&nbsp;By&nbsp;words&nbsp;we&nbsp;mean&nbsp;any&nbsp;sequence&nbsp;letters.<br>
+:return:&nbsp;Number&nbsp;of&nbsp;words&nbsp;in&nbsp;the&nbsp;corpus.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_number_of_words_in_vocabulary"><strong>get_number_of_words_in_vocabulary</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;number&nbsp;of&nbsp;words&nbsp;in&nbsp;the&nbsp;vocabulary&nbsp;built&nbsp;from&nbsp;the&nbsp;corpus.&nbsp;These&nbsp;are&nbsp;the&nbsp;number&nbsp;of&nbsp;distinct&nbsp;words.<br>
+:return:&nbsp;Number&nbsp;of&nbsp;words&nbsp;in&nbsp;the&nbsp;vocabulary</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_regex_end_xml"><strong>get_regex_end_xml</strong></a>(self)</dt><dd><tt>:return:&nbsp;The&nbsp;current&nbsp;regular&nbsp;expression&nbsp;of&nbsp;ending&nbsp;an&nbsp;xml&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_sentences"><strong>get_sentences</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;sentences&nbsp;of&nbsp;the&nbsp;corpus.&nbsp;The&nbsp;elements&nbsp;of&nbsp;this&nbsp;list&nbsp;are&nbsp;2-tuple&nbsp;where&nbsp;each&nbsp;tuple&nbsp;represents&nbsp;a<br>
+sentence&nbsp;and&nbsp;its&nbsp;terminator&nbsp;as&nbsp;follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(sent1,&nbsp;terminator1),&nbsp;....&nbsp;]<br>
+:return:&nbsp;a&nbsp;list&nbsp;of&nbsp;sentences</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_special_words_regex"><strong>get_special_words_regex</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;regular&nbsp;expressions&nbsp;of&nbsp;the&nbsp;special&nbsp;words.<br>
+:return:&nbsp;Regular&nbsp;expressions&nbsp;of&nbsp;the&nbsp;special&nbsp;words.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-get_vocabulary"><strong>get_vocabulary</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;vocabulary&nbsp;built&nbsp;from&nbsp;the&nbsp;corpus.<br>
+:return:&nbsp;The&nbsp;vocabulary&nbsp;whose&nbsp;structure&nbsp;is&nbsp;as&nbsp;follows:<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;{word1:{sentence_num:[position1,position2,....&nbsp;etc]},<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;word2:&nbsp;.....<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+#&nbsp;where&nbsp;sentences_num&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;the&nbsp;sentence&nbsp;where&nbsp;the&nbsp;word&nbsp;appears,&nbsp;and&nbsp;position&nbsp;is&nbsp;the&nbsp;position<br>
+#&nbsp;in&nbsp;the&nbsp;sentence&nbsp;where&nbsp;the&nbsp;word&nbsp;appears&nbsp;(a&nbsp;word&nbsp;may&nbsp;appear&nbsp;more&nbsp;than&nbsp;once&nbsp;in&nbsp;a&nbsp;sentence).</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-is_sent_terminator"><strong>is_sent_terminator</strong></a>(self, string)</dt><dd><tt>This&nbsp;method&nbsp;checks&nbsp;if&nbsp;the&nbsp;given&nbsp;'string'&nbsp;is&nbsp;a&nbsp;sentence&nbsp;terminator.&nbsp;This&nbsp;is&nbsp;checked&nbsp;with&nbsp;respect&nbsp;to<br>
+the&nbsp;regular&nbsp;expression&nbsp;set&nbsp;by&nbsp;<a href="#Preprocessor">Preprocessor</a>.set_ar_sent_terminator_regex<br>
+:param&nbsp;string:&nbsp;To&nbsp;check<br>
+:return:&nbsp;True&nbsp;if&nbsp;sentence&nbsp;terminator,&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-load_corpus_sentences"><strong>load_corpus_sentences</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;loads&nbsp;the&nbsp;sentences&nbsp;of&nbsp;the&nbsp;corpus&nbsp;from&nbsp;the&nbsp;source.&nbsp;If&nbsp;the&nbsp;source&nbsp;is&nbsp;a&nbsp;directory,&nbsp;it&nbsp;processes&nbsp;all<br>
+readable&nbsp;files&nbsp;in&nbsp;this&nbsp;directory.&nbsp;If&nbsp;the&nbsp;source&nbsp;is&nbsp;a&nbsp;file,&nbsp;it&nbsp;process&nbsp;the&nbsp;corpus&nbsp;in&nbsp;this&nbsp;file.<br>
+Any&nbsp;previous&nbsp;loaded&nbsp;sentences&nbsp;will&nbsp;be&nbsp;cleared,&nbsp;and&nbsp;the&nbsp;sentences&nbsp;of&nbsp;the&nbsp;corpus&nbsp;will&nbsp;be&nbsp;the&nbsp;loaded&nbsp;ones.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-pop_sentence"><strong>pop_sentence</strong></a>(self, sent_num)</dt><dd><tt>This&nbsp;method&nbsp;pops&nbsp;and&nbsp;returns&nbsp;sentence&nbsp;number&nbsp;'sent_num'&nbsp;from&nbsp;the&nbsp;sentences&nbsp;in&nbsp;this&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;<br>
+NOTE:&nbsp;It&nbsp;is&nbsp;always&nbsp;more&nbsp;efficient&nbsp;to&nbsp;use&nbsp;this&nbsp;method&nbsp;before&nbsp;you&nbsp;build&nbsp;the&nbsp;vocabulary.&nbsp;As&nbsp;popping&nbsp;a&nbsp;sentence,<br>
+after&nbsp;building&nbsp;a&nbsp;vocabulary&nbsp;causes&nbsp;deleting&nbsp;all&nbsp;the&nbsp;words&nbsp;constituting&nbsp;it&nbsp;from&nbsp;the&nbsp;vocabulary.<br>
+:param&nbsp;sent_num:&nbsp;The&nbsp;number&nbsp;of&nbsp;sentence&nbsp;to&nbsp;be&nbsp;popped.<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-put_errors_in_n_words_with_distance"><strong>put_errors_in_n_words_with_distance</strong></a>(self, vocabulary, n=300, d=1)</dt><dd><tt>This&nbsp;method&nbsp;puts&nbsp;spelling&nbsp;errors&nbsp;in&nbsp;every&nbsp;'n'&nbsp;words&nbsp;of&nbsp;the&nbsp;text.&nbsp;The&nbsp;error&nbsp;is&nbsp;made&nbsp;by&nbsp;choosing<br>
+the&nbsp;least&nbsp;number&nbsp;of&nbsp;sentences&nbsp;constituting&nbsp;words&nbsp;greater&nbsp;than&nbsp;or&nbsp;equal&nbsp;to&nbsp;'n',&nbsp;and&nbsp;then&nbsp;picking&nbsp;a&nbsp;word<br>
+randomly&nbsp;from&nbsp;these&nbsp;sentences&nbsp;and&nbsp;substituting&nbsp;with&nbsp;another&nbsp;word&nbsp;from&nbsp;the&nbsp;provided&nbsp;vocabulary<br>
+whose&nbsp;distance&nbsp;from&nbsp;correct&nbsp;word&nbsp;is&nbsp;'d'.<br>
+:param&nbsp;vocabulary:&nbsp;The&nbsp;vocabulary&nbsp;from&nbsp;which&nbsp;words&nbsp;will&nbsp;be&nbsp;looked&nbsp;up&nbsp;to&nbsp;replace&nbsp;other&nbsp;words.<br>
+:param&nbsp;n:&nbsp;Number&nbsp;of&nbsp;words&nbsp;amongst&nbsp;which&nbsp;an&nbsp;error&nbsp;will&nbsp;be&nbsp;placed.&nbsp;Default&nbsp;is&nbsp;500.<br>
+:param&nbsp;d:&nbsp;The&nbsp;string&nbsp;distance&nbsp;between&nbsp;the&nbsp;correct&nbsp;word&nbsp;and&nbsp;the&nbsp;erroneous&nbsp;word.&nbsp;Default&nbsp;is&nbsp;1.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-remove_xml_tags"><strong>remove_xml_tags</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;passed&nbsp;either&nbsp;a&nbsp;file&nbsp;or&nbsp;a&nbsp;directory.&nbsp;If&nbsp;it&nbsp;is&nbsp;passed&nbsp;a&nbsp;directory,&nbsp;it&nbsp;removes&nbsp;the&nbsp;xml&nbsp;tags<br>
+in&nbsp;the&nbsp;files&nbsp;in&nbsp;that&nbsp;directory,&nbsp;otherwise,&nbsp;it&nbsp;removes&nbsp;the&nbsp;xml&nbsp;tags&nbsp;in&nbsp;the&nbsp;file.&nbsp;If&nbsp;the&nbsp;destination&nbsp;is<br>
+given&nbsp;the&nbsp;resulting&nbsp;file(s)&nbsp;are&nbsp;written&nbsp;in&nbsp;the&nbsp;destination.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-set_ar_sent_terminator_regex"><strong>set_ar_sent_terminator_regex</strong></a>(self, regex)</dt><dd><tt>Sets&nbsp;the&nbsp;regular&nbsp;expression&nbsp;of&nbsp;the&nbsp;terminators&nbsp;of&nbsp;the&nbsp;Arabic&nbsp;sentences.&nbsp;Default&nbsp;is&nbsp;"[\n\r?؟\.!]"<br>
+:param&nbsp;regex:&nbsp;the&nbsp;regular&nbsp;expression&nbsp;you&nbsp;want&nbsp;to&nbsp;set.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-set_corpus_path"><strong>set_corpus_path</strong></a>(self, corpus)</dt><dd><tt>This&nbsp;method&nbsp;sets&nbsp;the&nbsp;path&nbsp;to&nbsp;your&nbsp;corpus&nbsp;file(s).&nbsp;The&nbsp;path&nbsp;can&nbsp;either&nbsp;be&nbsp;a&nbsp;directory&nbsp;containing&nbsp;file&nbsp;from<br>
+which&nbsp;your&nbsp;corpus&nbsp;will&nbsp;be&nbsp;loaded,&nbsp;or&nbsp;a&nbsp;file&nbsp;contaning&nbsp;your&nbsp;corpus.<br>
+:param&nbsp;corpus:&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;corpus<br>
+:return:&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-set_regex_end_xml"><strong>set_regex_end_xml</strong></a>(self, regex)</dt><dd><tt>Sets&nbsp;the&nbsp;regular&nbsp;expression&nbsp;of&nbsp;the&nbsp;last&nbsp;tag&nbsp;in&nbsp;the&nbsp;xml&nbsp;files.&nbsp;Default&nbsp;is&nbsp;"&lt;/DOC&gt;"<br>
+:param&nbsp;regex:&nbsp;the&nbsp;regular&nbsp;expression&nbsp;you&nbsp;want&nbsp;to&nbsp;set.<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-set_special_words_regex"><strong>set_special_words_regex</strong></a>(self, regex)</dt><dd><tt>This&nbsp;method&nbsp;sets&nbsp;the&nbsp;regular&nbsp;expressions&nbsp;of&nbsp;the&nbsp;special&nbsp;words&nbsp;which&nbsp;need&nbsp;to&nbsp;be&nbsp;treated&nbsp;as&nbsp;standalone&nbsp;words.<br>
+Default&nbsp;setting&nbsp;is&nbsp;"[\-:_~/&gt;&lt;"\[\]\{\}\(\)\+\*\|'\=\&amp;\^%\$#@`]"<br>
+:param&nbsp;regex:&nbsp;Regular&nbsp;expression<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-set_xml_path_and_corpus_path"><strong>set_xml_path_and_corpus_path</strong></a>(self, xml_source, corpus=None)</dt><dd><tt>This&nbsp;method&nbsp;sets&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;xml&nbsp;file(s)&nbsp;which&nbsp;will&nbsp;processed&nbsp;to&nbsp;remove&nbsp;the&nbsp;tags&nbsp;and&nbsp;generate&nbsp;the&nbsp;corpus<br>
+file(s).&nbsp;the&nbsp;'xml_source'&nbsp;is&nbsp;an&nbsp;xml&nbsp;file,&nbsp;'corpus'&nbsp;must&nbsp;be&nbsp;a&nbsp;file&nbsp;name&nbsp;of&nbsp;the&nbsp;corpus&nbsp;file&nbsp;to&nbsp;be&nbsp;generated,<br>
+otherwise,&nbsp;when&nbsp;'xml_source'&nbsp;is&nbsp;a&nbsp;directory&nbsp;containing&nbsp;xml&nbsp;files,&nbsp;'corpus'&nbsp;is&nbsp;must&nbsp;be&nbsp;a&nbsp;directory&nbsp;to&nbsp;contain<br>
+the&nbsp;corpus&nbsp;files&nbsp;generated&nbsp;from&nbsp;the&nbsp;xml&nbsp;files&nbsp;in&nbsp;the&nbsp;source&nbsp;directory:<br>
+:param&nbsp;xml_source:&nbsp;This&nbsp;is&nbsp;the&nbsp;source&nbsp;file/directory&nbsp;of&nbsp;the&nbsp;xml&nbsp;file(s)<br>
+:param&nbsp;corpus:&nbsp;This&nbsp;is&nbsp;the&nbsp;destination&nbsp;file/directory&nbsp;where&nbsp;the&nbsp;corpus&nbsp;file(s)&nbsp;will&nbsp;be&nbsp;written<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;after&nbsp;the&nbsp;xml&nbsp;tags&nbsp;are&nbsp;removed.&nbsp;If&nbsp;not&nbsp;passed,&nbsp;the&nbsp;xml_source&nbsp;must&nbsp;be&nbsp;a&nbsp;file&nbsp;and&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generated&nbsp;corpus&nbsp;file&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;name&nbsp;as&nbsp;the&nbsp;source&nbsp;with&nbsp;extension&nbsp;"txt"<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-write_corpus_vocabulary"><strong>write_corpus_vocabulary</strong></a>(self, file_name=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;)</dt><dd><tt>this&nbsp;method&nbsp;writes&nbsp;the&nbsp;corpus&nbsp;vocabulary&nbsp;to&nbsp;the&nbsp;file&nbsp;specified&nbsp;by&nbsp;file_name.<br>
+:param&nbsp;file_name:&nbsp;The&nbsp;file&nbsp;to&nbsp;which&nbsp;this&nbsp;method&nbsp;writes.<br>
+:return:&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-write_errors"><strong>write_errors</strong></a>(self, file_name=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;)</dt><dd><tt>this&nbsp;method&nbsp;writes&nbsp;the&nbsp;errors&nbsp;made&nbsp;by&nbsp;the&nbsp;preprocessor&nbsp;on&nbsp;the&nbsp;corpus&nbsp;to&nbsp;the&nbsp;file&nbsp;specified&nbsp;by&nbsp;file_name.<br>
+:param&nbsp;file_name:&nbsp;The&nbsp;file&nbsp;to&nbsp;which&nbsp;this&nbsp;method&nbsp;writes.<br>
+:return:&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-write_sentences"><strong>write_sentences</strong></a>(self, file_name=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;)</dt><dd><tt>This&nbsp;method&nbsp;writes&nbsp;the&nbsp;the&nbsp;current&nbsp;sentences&nbsp;to&nbsp;the&nbsp;given&nbsp;file.&nbsp;Each&nbsp;sentence&nbsp;is&nbsp;written&nbsp;in&nbsp;a&nbsp;separate&nbsp;line.<br>
+:param&nbsp;file_name:The&nbsp;name&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;which&nbsp;the&nbsp;sentences&nbsp;will&nbsp;be&nbsp;written<br>
+:return:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-xml_path_is_set"><strong>xml_path_is_set</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;checks&nbsp;if&nbsp;xml&nbsp;path&nbsp;is&nbsp;set&nbsp;(not&nbsp;None).<br>
+:return:&nbsp;True:&nbsp;if&nbsp;xml&nbsp;path&nbsp;is&nbsp;set,&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Preprocessor-build_alphabet"><strong>build_alphabet</strong></a>(vocabulary)</dt><dd><tt>This&nbsp;method&nbsp;builds&nbsp;the&nbsp;alphabet&nbsp;that&nbsp;is&nbsp;used&nbsp;to&nbsp;form&nbsp;the&nbsp;words&nbsp;of&nbsp;the&nbsp;given&nbsp;vocabulary.<br>
+:param&nbsp;vocabulary:&nbsp;A&nbsp;python&nbsp;dictionary&nbsp;representing&nbsp;the&nbsp;vocabulary&nbsp;from&nbsp;which&nbsp;an&nbsp;alphabet&nbsp;will&nbsp;be&nbsp;built.<br>
+:return:</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-edits1_in_vocabulary"><strong>edits1_in_vocabulary</strong></a>(word, vocabulary, alphabet)</dt><dd><tt>This&nbsp;method&nbsp;returns&nbsp;all&nbsp;words&nbsp;that&nbsp;are&nbsp;one&nbsp;editing&nbsp;distance&nbsp;from&nbsp;the&nbsp;given&nbsp;word&nbsp;'word'.<br>
+It&nbsp;has&nbsp;been&nbsp;taken&nbsp;from&nbsp;Peter&nbsp;Novring's&nbsp;spell&nbsp;corrector&nbsp;system&nbsp;published&nbsp;in:<br>
+<a href="http://norvig.com/spell-correct.html">http://norvig.com/spell-correct.html</a><br>
+&nbsp;<br>
+with&nbsp;a&nbsp;little&nbsp;change&nbsp;so&nbsp;that&nbsp;only&nbsp;words&nbsp;that&nbsp;exist&nbsp;in&nbsp;the&nbsp;given&nbsp;vocabulary&nbsp;are&nbsp;returned.&nbsp;And&nbsp;the&nbsp;possible<br>
+words&nbsp;which&nbsp;will&nbsp;be&nbsp;returned&nbsp;will&nbsp;be&nbsp;built&nbsp;from&nbsp;the&nbsp;given&nbsp;alphabet.<br>
+:param&nbsp;word:&nbsp;A&nbsp;word&nbsp;to&nbsp;find&nbsp;all&nbsp;words&nbsp;in&nbsp;the&nbsp;vocabulary&nbsp;which&nbsp;are&nbsp;1&nbsp;editing&nbsp;distance&nbsp;from&nbsp;it.<br>
+:param&nbsp;vocabulary:&nbsp;A&nbsp;vocabulary&nbsp;from&nbsp;which&nbsp;words&nbsp;with&nbsp;1&nbsp;edit&nbsp;distance&nbsp;from&nbsp;'word'&nbsp;will&nbsp;be&nbsp;looked&nbsp;up.<br>
+:param&nbsp;alphabet:&nbsp;An&nbsp;alphabet&nbsp;which&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;potential&nbsp;words.<br>
+:return:&nbsp;A&nbsp;set&nbsp;of&nbsp;words&nbsp;in&nbsp;the&nbsp;vocabulary&nbsp;which&nbsp;are&nbsp;1&nbsp;editing&nbsp;distance&nbsp;from&nbsp;the&nbsp;given&nbsp;word.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-edits2_in_vocabulary"><strong>edits2_in_vocabulary</strong></a>(word, vocabulary, alphabet)</dt><dd><tt>This&nbsp;method&nbsp;returns&nbsp;all&nbsp;words&nbsp;that&nbsp;are&nbsp;two&nbsp;editing&nbsp;distance&nbsp;from&nbsp;the&nbsp;given&nbsp;word&nbsp;'word'.<br>
+It&nbsp;has&nbsp;been&nbsp;taken&nbsp;from&nbsp;Peter&nbsp;Novring's&nbsp;spell&nbsp;corrector&nbsp;system&nbsp;published&nbsp;in:<br>
+<a href="http://norvig.com/spell-correct.html">http://norvig.com/spell-correct.html</a><br>
+&nbsp;<br>
+with&nbsp;a&nbsp;little&nbsp;change&nbsp;so&nbsp;that&nbsp;only&nbsp;words&nbsp;that&nbsp;exist&nbsp;in&nbsp;the&nbsp;given&nbsp;vocabulary&nbsp;are&nbsp;returned.&nbsp;And&nbsp;the&nbsp;possible<br>
+words&nbsp;which&nbsp;will&nbsp;be&nbsp;returned&nbsp;will&nbsp;be&nbsp;built&nbsp;from&nbsp;the&nbsp;given&nbsp;alphabet.<br>
+:param&nbsp;word:&nbsp;A&nbsp;word&nbsp;to&nbsp;find&nbsp;all&nbsp;words&nbsp;in&nbsp;which&nbsp;are&nbsp;2&nbsp;editing&nbsp;distance&nbsp;from&nbsp;it.<br>
+:param&nbsp;vocabulary:&nbsp;A&nbsp;vocabulary&nbsp;from&nbsp;which&nbsp;words&nbsp;with&nbsp;2&nbsp;edit&nbsp;distance&nbsp;from&nbsp;'word'&nbsp;will&nbsp;be&nbsp;looked&nbsp;up.<br>
+:param&nbsp;alphabet:&nbsp;An&nbsp;alphabet&nbsp;which&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;potential&nbsp;words.<br>
+:return:&nbsp;A&nbsp;set&nbsp;of&nbsp;words&nbsp;in&nbsp;the&nbsp;vocabulary&nbsp;which&nbsp;are&nbsp;2&nbsp;editing&nbsp;distance&nbsp;from&nbsp;the&nbsp;given&nbsp;word.</tt></dd></dl>
+
+<dl><dt><a name="Preprocessor-levenshtein"><strong>levenshtein</strong></a>(s, t)</dt><dd><tt>This&nbsp;method&nbsp;computes&nbsp;the&nbsp;Levenshtein&nbsp;distance&nbsp;between&nbsp;two&nbsp;strings&nbsp;'s'&nbsp;and&nbsp;'t'.&nbsp;We&nbsp;have&nbsp;taken&nbsp;it&nbsp;as&nbsp;it&nbsp;is<br>
+from&nbsp;a&nbsp;wikipedia&nbsp;article&nbsp;indicating&nbsp;courtesy&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Christopher&nbsp;P.&nbsp;Matthews,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;christophermatthews1985@gmail.com,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Sacramento,&nbsp;CA,&nbsp;USA<br>
+:param&nbsp;s:&nbsp;First&nbsp;string<br>
+:param&nbsp;t:&nbsp;Second&nbsp;string<br>
+:return:&nbsp;Levenshtein&nbsp;distance&nbsp;between&nbsp;'s'&nbsp;and&nbsp;'t'.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
